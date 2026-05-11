@@ -89,3 +89,18 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+uint64
+sys_lcg_srand(void)
+{
+  int seed;
+  argint(0, &seed);
+  lcg_srand((uint)seed);
+  return 0;
+}
+
+uint64
+sys_lcg_rand(void)
+{
+  return lcg_rand();
+}
