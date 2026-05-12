@@ -47,4 +47,7 @@ void lcg_srand(uint64);
 uint64 lcg_rand(void);
 void setgid(int);
 int getgid(void);
-
+int israeli_create(int);
+int israeli_acquire(int);
+int israeli_release(int);
+int israeli_destroy(int);

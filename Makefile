@@ -29,7 +29,8 @@ OBJS = \
   $K/kernelvec.o \
   $K/plic.o \
   $K/virtio_disk.o \
-  $K/random.o
+  $K/random.o \
+  $K/israeli.o
 
 # riscv64-unknown-elf- or riscv64-linux-gnu-
 # perhaps in /opt/riscv/bin
@@ -134,6 +135,7 @@ UPROGS=\
 	$U/_wc\
 	$U/_zombie\
 	$U/_randtest\
+	$U/_israelitest\
 
 fs.img: mkfs/mkfs README $(UPROGS)
 	mkfs/mkfs fs.img README $(UPROGS)
