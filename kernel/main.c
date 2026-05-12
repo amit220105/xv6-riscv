@@ -14,6 +14,7 @@ main()
     consoleinit();
     printfinit();
     randinit();
+    israeli_init();
     printf("\n");
     printf("xv6 kernel is booting\n");
     printf("\n");
