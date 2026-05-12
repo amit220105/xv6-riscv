@@ -40,8 +40,9 @@ void free(void*);
 int atoi(const char*);
 int memcmp(const void *, const void *, uint);
 void *memcpy(void *, const void *, uint);
-int srand(uint);
-int rand(void);
-void lcg_srand(uint);
-uint lcg_rand(void);
+int srand_sys(uint64);
+uint64 rand_sys(void);
+
+void lcg_srand(uint64);
+uint64 lcg_rand(void);
 

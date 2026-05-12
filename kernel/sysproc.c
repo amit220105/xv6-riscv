@@ -90,17 +90,35 @@ sys_uptime(void)
   return xticks;
 }
 
+
 uint64
-sys_lcg_srand(void)
+sys_srand_sys(void)
 {
   int seed;
+
   argint(0, &seed);
-  lcg_srand((uint)seed);
+  lcg_srand((uint64)seed);
   return 0;
 }
 
 uint64
-sys_lcg_rand(void)
+sys_rand_sys(void)
 {
   return lcg_rand();
+}
+
+uint64
+sys_setgid(void)
+{
+  int gid;
+
+  argint(0, &gid);
+  myproc()->gid = gid;
+  return 0;
+}
+
+uint64
+sys_getgid(void)
+{
+  return myproc()->gid;
 }

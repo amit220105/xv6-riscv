@@ -101,8 +101,10 @@ extern uint64 sys_unlink(void);
 extern uint64 sys_link(void);
 extern uint64 sys_mkdir(void);
 extern uint64 sys_close(void);
-extern uint64 sys_lcg_srand(void);
-extern uint64 sys_lcg_rand(void);
+extern uint64 sys_srand_sys(void);
+extern uint64 sys_rand_sys(void);
+extern uint64 sys_setgid(void);
+extern uint64 sys_getgid(void);
 
 // An array mapping syscall numbers from syscall.h
 // to the function that handles the system call.
@@ -128,8 +130,9 @@ static uint64 (*syscalls[])(void) = {
 [SYS_link]    sys_link,
 [SYS_mkdir]   sys_mkdir,
 [SYS_close]   sys_close,
-[SYS_srand] sys_srand,
-[SYS_rand]  sys_rand,
+[SYS_srand_sys] sys_srand_sys,
+[SYS_rand_sys]  sys_rand_sys,
+
 };
 
 void
@@ -150,9 +153,4 @@ syscall(void)
   }
 }
 
-unit64
-sys_setgid(int gid)
-{
-  
-}
 

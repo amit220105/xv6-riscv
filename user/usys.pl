@@ -36,5 +36,5 @@ entry("getpid");
 entry("sbrk");
 entry("sleep");
 entry("uptime");
-entry("srand");
-entry("rand");
+entry("srand_sys");
+entry("rand_sys");
