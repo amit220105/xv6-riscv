@@ -53,3 +53,7 @@ int israeli_acquire(int);
 int israeli_release(int);
 int israeli_destroy(int);
 
+int race_init(int);
+int race_inc_score(int);
+int race_get_score(int);
+

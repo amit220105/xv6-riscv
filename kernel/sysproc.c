@@ -154,3 +154,56 @@ sys_israeli_destroy(void)
   argint(0, &lock_id);
   return israeli_destroy(lock_id);
 }
+
+#define MAX_TEAMS 10
+int race_scores[MAX_TEAMS];
+struct spinlock race_lock;
+int race_lock_init = 0;
+
+uint64
+sys_race_init(void)
+{
+  int num_teams;
+  argint(0, &num_teams);
+  if (!race_lock_init) {
+    initlock(&race_lock, "race_lock");
+    race_lock_init = 1;
+  }
+  
+  acquire(&race_lock);
+  for(int i = 0; i < MAX_TEAMS; i++){
+    race_scores[i] = 0;
+  }
+  release(&race_lock);
+  
+  return 0;
+}
+
+uint64
+sys_race_inc_score(void)
+{
+  int team_id;
+  argint(0, &team_id);
+  if(team_id < 0 || team_id >= MAX_TEAMS) return -1;
+  
+  acquire(&race_lock);
+  race_scores[team_id]++;
+  int new_score = race_scores[team_id];
+  release(&race_lock);
+  
+  return new_score;
+}
+
+uint64
+sys_race_get_score(void)
+{
+  int team_id;
+  argint(0, &team_id);
+  if(team_id < 0 || team_id >= MAX_TEAMS) return -1;
+  
+  acquire(&race_lock);
+  int score = race_scores[team_id];
+  release(&race_lock);
+  
+  return score;
+}

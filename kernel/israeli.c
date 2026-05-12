@@ -111,15 +111,15 @@ israeli_release(int lock_id)
   int next_idx = 0;
   int G = myproc()->gid;
   int c = il->favoritism;
-  int found_group = 0;
 
   for (int i = 0; i < il->queue_count; i++) {
     if (il->queue[i]->gid == G) {
+      // Found the earliest waiting process with the same gid
       if (lcg_rand() % 100 < c) {
         next_idx = i;
-        found_group = 1;
-        break;
       }
+      // Whether we select it or not, we only consider the earliest one
+      break;
     }
   }
 

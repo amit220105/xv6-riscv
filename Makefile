@@ -135,6 +135,8 @@ UPROGS=\
 	$U/_wc\
 	$U/_zombie\
 	$U/_randtest\
+	$U/_israelitest\
+	$U/_relay_race\
 
 fs.img: mkfs/mkfs README $(UPROGS)
 	mkfs/mkfs fs.img README $(UPROGS)

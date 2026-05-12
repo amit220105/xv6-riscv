@@ -1,8 +1,6 @@
 #ifndef ISRAELI_H
 #define ISRAELI_H
 
-#include "spinlock.h"
-
 #define NISRAELI 15
 #define MAX_QUEUE 16
 
