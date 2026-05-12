@@ -45,4 +45,6 @@ uint64 rand_sys(void);
 
 void lcg_srand(uint64);
 uint64 lcg_rand(void);
+void setgid(int);
+int getgid(void);
 

@@ -132,6 +132,8 @@ static uint64 (*syscalls[])(void) = {
 [SYS_close]   sys_close,
 [SYS_srand_sys] sys_srand_sys,
 [SYS_rand_sys]  sys_rand_sys,
+[SYS_setgid] sys_setgid,
+[SYS_getgid] sys_getgid,
 
 };
 

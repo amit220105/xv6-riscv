@@ -38,3 +38,5 @@ entry("sleep");
 entry("uptime");
 entry("srand_sys");
 entry("rand_sys");
+entry("setgid");
+entry("getgid");
