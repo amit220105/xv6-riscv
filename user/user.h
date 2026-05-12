@@ -51,3 +51,7 @@ int israeli_create(int);
 int israeli_acquire(int);
 int israeli_release(int);
 int israeli_destroy(int);
+int score_reset(void);
+int score_inc(int);
+int score_get(int);
+int score_winner(int);
