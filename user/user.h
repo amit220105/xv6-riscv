@@ -43,8 +43,8 @@ void *memcpy(void *, const void *, uint);
 int srand_sys(uint64);
 uint64 rand_sys(void);
 
-void lcg_srand(uint64);
-uint64 lcg_rand(void);
+void lcg_srand(uint seed);
+uint lcg_rand(void);
 void setgid(int);
 int getgid(void);
 

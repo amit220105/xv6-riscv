@@ -95,16 +95,15 @@ uint64
 sys_srand_sys(void)
 {
   int seed;
-
   argint(0, &seed);
-  lcg_srand((uint64)seed);
+  lcg_srand((uint)seed); 
   return 0;
 }
 
 uint64
 sys_rand_sys(void)
 {
-  return lcg_rand();
+  return lcg_rand(); 
 }
 
 uint64

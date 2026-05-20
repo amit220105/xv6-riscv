@@ -147,13 +147,13 @@ memcpy(void *dst, const void *src, uint n)
 }
 
 void
-lcg_srand(uint64 seed)
+lcg_srand(uint seed)
 {
   srand_sys(seed);
 }
 
-uint64
+uint
 lcg_rand(void)
 {
-  return rand_sys();
+  return (uint)rand_sys();
 }
